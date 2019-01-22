@@ -9,17 +9,17 @@ namespace test
         [Fact]
         public void UseFiveSquaresIfBattleship()
         {
-            int expected = 5;
-            int actual = (int)Ships.Battleship;
-            Assert.Equal(expected,actual);
+            int expectedSquaresInABattleship = 5;
+            int squaresInABattleship = (int)Ships.Battleship;
+            Assert.Equal(expectedSquaresInABattleship, squaresInABattleship);
         }
 
         [Fact]
         public void UseFourSquaresIfDestroyer()
         {
-            int expected = 4;
-            int actual = (int)Ships.Destroyer;
-            Assert.Equal(expected,actual);
+            int expectedSquaresInADestroyer = 4;
+            int squaresInADestroyer = (int)Ships.Destroyer;
+            Assert.Equal(expectedSquaresInADestroyer, squaresInADestroyer);
         }
     }
 }
