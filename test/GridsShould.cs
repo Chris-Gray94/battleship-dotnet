@@ -33,14 +33,16 @@ namespace test
         public void HaveMissesByDefault()
         {
             var grid = new Grid();
-            
-            foreach(var square in grid.Squares)
+
+            var defaultValue = (Square)grid.Squares.GetValue(0, 0);
+
+            foreach (var square in grid.Squares)
             {
-                Assert.Equal(State.Miss, square.State);
+                Assert.Equal(State.Miss, defaultValue.State);
+
             }
         }
-    }   
-
+        
     public class Grid
     {
         private const int _defaultNumberOfColumns = 10;
@@ -48,16 +50,31 @@ namespace test
 
         public Square[,] Squares { get;set;}
 
+        public State State { get; set;}    
+
         public Grid()
         {
             Squares = new Square[_defaultNumberOfRows, _defaultNumberOfColumns];
+            var defaultStateValue = State.Miss;
+            var mySquare = new Square()
+            {
+                State = defaultStateValue
+            };
+
+            
+            for (int i = 0; i < Squares.GetLength(0); i++)
+            {
+                for (int j = 0; j < Squares.GetLength(1); j++)
+                {
+                    Squares.SetValue(mySquare, i, j);               
+                }
+            }
         }
     }
 
     public class Square
     {
         public State State { get; set;} 
-
     }
 
     public enum State
