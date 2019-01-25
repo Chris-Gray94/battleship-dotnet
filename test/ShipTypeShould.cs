@@ -4,13 +4,13 @@ using Xunit;
 namespace test
 {
 
-    public class ShipsShould
+    public class ShipTypeShould
     {
         [Fact]
         public void UseFiveSquaresIfBattleship()
         {
             int expectedSquaresInABattleship = 5;
-            int squaresInABattleship = (int)Ships.Battleship;
+            int squaresInABattleship = (int)ShipType.Battleship;
             Assert.Equal(expectedSquaresInABattleship, squaresInABattleship);
         }
 
@@ -18,7 +18,7 @@ namespace test
         public void UseFourSquaresIfDestroyer()
         {
             int expectedSquaresInADestroyer = 4;
-            int squaresInADestroyer = (int)Ships.Destroyer;
+            int squaresInADestroyer = (int)ShipType.Destroyer;
             Assert.Equal(expectedSquaresInADestroyer, squaresInADestroyer);
         }
     }
